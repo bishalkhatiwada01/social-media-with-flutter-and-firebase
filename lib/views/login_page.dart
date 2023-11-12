@@ -1,12 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:socialmediaapp/components/my_button.dart';
 import 'package:socialmediaapp/components/my_textfield.dart';
 
 class LoginPage extends StatelessWidget {
+  final void Function()? onTap;
+
+  LoginPage({
+    super.key,
+    required this.onTap,
+  });
+
+  // text controller
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
-  LoginPage({super.key});
+  // register method
+  void login() {}
 
   @override
   Widget build(BuildContext context) {
@@ -23,17 +33,64 @@ class LoginPage extends StatelessWidget {
                 size: 80,
                 color: Theme.of(context).colorScheme.inversePrimary,
               ),
-              SizedBox(height: 25.h),
               Text(
                 'Social Media',
                 style: TextStyle(
                   fontSize: 20.sp,
                 ),
               ),
+              SizedBox(height: 45.h),
               MyTextField(
-                hintText: '',
+                hintText: 'Email',
                 obscureText: false,
                 controller: emailController,
+              ),
+              SizedBox(height: 25.h),
+              MyTextField(
+                hintText: 'Password',
+                obscureText: true,
+                controller: passwordController,
+              ),
+              SizedBox(height: 10.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.end,
+                children: [
+                  Text(
+                    'Forgot Password?',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 25.h),
+              MyButton(
+                text: 'Login',
+                onTap: login,
+              ),
+              SizedBox(height: 25.h),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    'Dont have an account?',
+                    style: TextStyle(
+                      color: Theme.of(context).colorScheme.inversePrimary,
+                    ),
+                  ),
+                  SizedBox(
+                    width: 10.w,
+                  ),
+                  GestureDetector(
+                    onTap: () {},
+                    child: const Text(
+                      'Register Here',
+                      style: TextStyle(
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ],
               )
             ],
           ),
