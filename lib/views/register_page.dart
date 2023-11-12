@@ -84,7 +84,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   size: 80,
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
-          
+
                 // name of app
                 Text(
                   'Social Media',
@@ -93,7 +93,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ),
                 ),
                 SizedBox(height: 25.h),
-          
+
                 // username textfield
                 MyTextField(
                   hintText: 'Username',
@@ -101,7 +101,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: usernameController,
                 ),
                 SizedBox(height: 10.h),
-          
+
                 // email textfield
                 MyTextField(
                   hintText: 'Email',
@@ -109,7 +109,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: emailController,
                 ),
                 SizedBox(height: 10.h),
-          
+
                 // password textfield
                 MyTextField(
                   hintText: 'Password',
@@ -117,7 +117,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: passwordController,
                 ),
                 SizedBox(height: 10.h),
-          
+
                 // confirm password textfield
                 MyTextField(
                   hintText: 'Confirm Password',
@@ -125,7 +125,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   controller: confirmPwController,
                 ),
                 SizedBox(height: 10.h),
-          
+
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -138,7 +138,7 @@ class _RegisterPageState extends State<RegisterPage> {
                   ],
                 ),
                 SizedBox(height: 25.h),
-          
+
                 // register button
                 MyButton(
                   text: 'Register',
