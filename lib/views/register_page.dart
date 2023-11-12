@@ -1,33 +1,79 @@
+// ignore_for_file: use_build_context_synchronously
+
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:socialmediaapp/components/my_button.dart';
 import 'package:socialmediaapp/components/my_textfield.dart';
+import 'package:socialmediaapp/helper/helper_functions.dart';
 
-class RegisterPage extends StatelessWidget {
-  RegisterPage({
+class RegisterPage extends StatefulWidget {
+  const RegisterPage({
     super.key,
     required this.onTap,
   });
 
+  final void Function()? onTap;
+
+  @override
+  State<RegisterPage> createState() => _RegisterPageState();
+}
+
+class _RegisterPageState extends State<RegisterPage> {
   // text controller
   TextEditingController usernameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
   TextEditingController confirmPwController = TextEditingController();
 
-  final void Function()? onTap;
-
   // login method
-  void register() {}
+  void registerUser() async {
+    // show loading circle
+    showDialog(
+      context: context,
+      builder: (context) => const Center(
+        child: CircularProgressIndicator(),
+      ),
+    );
+
+    // make sure password match
+    if (passwordController.text != confirmPwController.text) {
+      Navigator.pop(context);
+
+      // show error message to user
+      displayMessageToUser('Password dont match', context);
+    }
+    // if the password match
+    else {
+      // try creating the user
+      try {
+        // create the user
+        UserCredential? userCredential =
+            await FirebaseAuth.instance.createUserWithEmailAndPassword(
+          email: emailController.text,
+          password: passwordController.text,
+        );
+
+        // pop loading circle
+        Navigator.pop(context);
+      } on FirebaseAuthException catch (e) {
+        // pop loading circle
+        Navigator.pop(context);
+
+        // display error message
+        displayMessageToUser(e.code, context);
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).colorScheme.background,
-      body: SingleChildScrollView(
-        child: Center(
-          child: Padding(
-            padding: EdgeInsets.all(25.sp),
+      body: Center(
+        child: Padding(
+          padding: EdgeInsets.all(25.sp),
+          child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -38,8 +84,7 @@ class RegisterPage extends StatelessWidget {
                   size: 80,
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),
-                SizedBox(height: 10.h),
-
+          
                 // name of app
                 Text(
                   'Social Media',
@@ -47,8 +92,8 @@ class RegisterPage extends StatelessWidget {
                     fontSize: 20.sp,
                   ),
                 ),
-                SizedBox(height: 45.h),
-
+                SizedBox(height: 25.h),
+          
                 // username textfield
                 MyTextField(
                   hintText: 'Username',
@@ -56,7 +101,7 @@ class RegisterPage extends StatelessWidget {
                   controller: usernameController,
                 ),
                 SizedBox(height: 10.h),
-
+          
                 // email textfield
                 MyTextField(
                   hintText: 'Email',
@@ -64,7 +109,7 @@ class RegisterPage extends StatelessWidget {
                   controller: emailController,
                 ),
                 SizedBox(height: 10.h),
-
+          
                 // password textfield
                 MyTextField(
                   hintText: 'Password',
@@ -72,7 +117,7 @@ class RegisterPage extends StatelessWidget {
                   controller: passwordController,
                 ),
                 SizedBox(height: 10.h),
-
+          
                 // confirm password textfield
                 MyTextField(
                   hintText: 'Confirm Password',
@@ -80,7 +125,7 @@ class RegisterPage extends StatelessWidget {
                   controller: confirmPwController,
                 ),
                 SizedBox(height: 10.h),
-
+          
                 Row(
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
@@ -93,11 +138,11 @@ class RegisterPage extends StatelessWidget {
                   ],
                 ),
                 SizedBox(height: 25.h),
-
+          
                 // register button
                 MyButton(
                   text: 'Register',
-                  onTap: register,
+                  onTap: registerUser,
                 ),
                 SizedBox(height: 25.h),
                 Row(
@@ -113,7 +158,7 @@ class RegisterPage extends StatelessWidget {
                       width: 10.w,
                     ),
                     GestureDetector(
-                      onTap: onTap,
+                      onTap: widget.onTap,
                       child: const Text(
                         'Login Here',
                         style: TextStyle(
