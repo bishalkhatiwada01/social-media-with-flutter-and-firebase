@@ -6,7 +6,12 @@ class UserPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('user')),
+      appBar: AppBar(
+        centerTitle: true,
+        title: Text('User'),
+        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+        elevation: 0,
+      ),
     );
   }
 }

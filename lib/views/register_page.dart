@@ -1,5 +1,6 @@
 // ignore_for_file: use_build_context_synchronously
 
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -54,8 +55,10 @@ class _RegisterPageState extends State<RegisterPage> {
           password: passwordController.text,
         );
 
+        // create the user document and add to firestore
+        createUserDocument(userCredential);
         // pop loading circle
-        Navigator.pop(context);
+        if (context.mounted) Navigator.pop(context);
       } on FirebaseAuthException catch (e) {
         // pop loading circle
         Navigator.pop(context);
@@ -63,6 +66,19 @@ class _RegisterPageState extends State<RegisterPage> {
         // display error message
         displayMessageToUser(e.code, context);
       }
+    }
+  }
+
+  // create a user document and collect them in firestore
+  Future<void> createUserDocument(UserCredential? userCredential) async {
+    if (userCredential != null && userCredential.user != null) {
+      await FirebaseFirestore.instance
+          .collection("Users")
+          .doc(userCredential.user!.email)
+          .set({
+        'email': userCredential.user!.email,
+        'username': usernameController.text,
+      });
     }
   }
 

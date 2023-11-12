@@ -19,7 +19,7 @@ class MyButton extends StatelessWidget {
           color: Theme.of(context).colorScheme.primary,
           borderRadius: BorderRadius.circular(12),
         ),
-        padding: EdgeInsets.all(20.sp),
+        padding: EdgeInsets.all(16.sp),
         child: Center(
           child: Text(
             text,
