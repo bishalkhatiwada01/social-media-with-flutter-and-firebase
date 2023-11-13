@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:socialmediaapp/components/my_back_buttom.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
@@ -19,12 +21,6 @@ class ProfilePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        centerTitle: true,
-        title: const Text('Profile'),
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        elevation: 0,
-      ),
       backgroundColor: Theme.of(context).colorScheme.background,
       body: FutureBuilder(
         future: getUserDetails(),
@@ -46,11 +42,47 @@ class ProfilePage extends StatelessWidget {
             // extract data
             Map<String, dynamic>? user = snapshot.data!.data();
 
-            return Center(
+            return SingleChildScrollView(
               child: Column(
                 children: [
-                  Text(user!['email']),
-                  Text(user!['username']),
+                  Padding(
+                    padding: EdgeInsets.only(
+                      left: 15.w,
+                      top: 40.h,
+                    ),
+                    child: Row(
+                      children: [
+                        MyBackButton(),
+                      ],
+                    ),
+                  ),
+                  SizedBox(height: 50.h),
+                  Container(
+                    decoration: BoxDecoration(
+                      color: Theme.of(context).colorScheme.primary,
+                      borderRadius: BorderRadius.circular(20.w),
+                    ),
+                    padding: EdgeInsets.all(20.w),
+                    child: Icon(
+                      Icons.person,
+                      size: 60.sp,
+                    ),
+                  ),
+                  SizedBox(height: 20.h),
+                  Text(
+                    user!['username'],
+                    style: TextStyle(
+                      fontSize: 24.sp,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  Text(
+                    user['email'],
+                    style: TextStyle(
+                      fontSize: 18.sp,
+                      fontWeight: FontWeight.normal,
+                    ),
+                  ),
                 ],
               ),
             );
