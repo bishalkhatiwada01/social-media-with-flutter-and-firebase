@@ -25,7 +25,7 @@ class FirestoreDatabase {
     return posts.add({
       'UserEmail': user!.email,
       'PostMessage': message,
-      'TimeStamp': Timestamp.now(),
+      'dateString': '${DateTime.now()}',
     });
   }
 
@@ -33,7 +33,7 @@ class FirestoreDatabase {
   Stream<QuerySnapshot> getPostsStream() {
     final postsStream = FirebaseFirestore.instance
         .collection('Posts')
-        .orderBy('TimeStamp', descending: true)
+        .orderBy('dateString', descending: true)
         .snapshots();
 
     return postsStream;

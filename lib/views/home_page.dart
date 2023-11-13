@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:socialmediaapp/components/my_drawer.dart';
+import 'package:socialmediaapp/components/my_list_tile.dart';
 import 'package:socialmediaapp/components/my_post_button..dart';
 import 'package:socialmediaapp/components/my_textfield.dart';
 import 'package:socialmediaapp/database/firestore.dart';
@@ -65,7 +66,7 @@ class HomePage extends StatelessWidget {
             builder: (context, snapshot) {
               // show loading
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Center(
+                return const Center(
                   child: CircularProgressIndicator(),
                 );
               }
@@ -78,7 +79,7 @@ class HomePage extends StatelessWidget {
                 return Center(
                   child: Padding(
                     padding: EdgeInsets.all(20.w),
-                    child: Text('No posts .. Please Post something!'),
+                    child: const Text('No posts .. Please Post something!'),
                   ),
                 );
               }
@@ -94,21 +95,13 @@ class HomePage extends StatelessWidget {
                     // get data from each post
                     String message = post['PostMessage'];
                     String userEmail = post['UserEmail'];
-                    Timestamp timestamp = post['TimeStamp'];
+                    String timestamp = post['dateString'];
 
                     // return as a listtile
-                    return Padding(
-                      padding: EdgeInsets.all(20.h),
-                      child: ListTile(
-                        title: Text(message),
-                        subtitle: Text(
-                          userEmail,
-                          style: TextStyle(
-                            color: Theme.of(context).colorScheme.secondary,
-                          ),
-                        ),
-                        leading: Text(timestamp.toString()),
-                      ),
+                    return MyListTile(
+                      title: message,
+                      subtitle: userEmail,
+                      timestamp: timestamp,
                     );
                   },
                 ),
