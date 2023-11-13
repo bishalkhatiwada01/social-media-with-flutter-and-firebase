@@ -1,5 +1,4 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:socialmediaapp/components/my_back_buttom.dart';
@@ -22,7 +21,7 @@ class UserPage extends StatelessWidget {
 
           // show loading circle
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -47,17 +46,20 @@ class UserPage extends StatelessWidget {
                 ),
               ),
               SizedBox(height: 50.h),
-              ListView.builder(
-                itemCount: users.length,
-                itemBuilder: (context, index) {
-                  // get individual users
-                  final user = users[index];
+              Expanded(
+                child: ListView.builder(
+                  itemCount: users.length,
+                  padding: EdgeInsets.symmetric(horizontal: 30.w),
+                  itemBuilder: (context, index) {
+                    // get individual users
+                    final user = users[index];
 
-                  return ListTile(
-                    title: Text(user['username']),
-                    subtitle: Text(user['email']),
-                  );
-                },
+                    return ListTile(
+                      title: Text(user['username']),
+                      subtitle: Text(user['email']),
+                    );
+                  },
+                ),
               ),
             ],
           );

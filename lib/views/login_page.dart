@@ -27,7 +27,7 @@ class _LoginPageState extends State<LoginPage> {
     // show loading
     showDialog(
       context: context,
-      builder: (context) => Center(
+      builder: (context) => const Center(
         child: CircularProgressIndicator(),
       ),
     );

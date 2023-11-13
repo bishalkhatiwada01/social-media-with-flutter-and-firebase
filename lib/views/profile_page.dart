@@ -56,7 +56,7 @@ class ProfilePage extends StatelessWidget {
                       ],
                     ),
                   ),
-                  SizedBox(height: 50.h),
+                  SizedBox(height: 25.h),
                   Container(
                     decoration: BoxDecoration(
                       color: Theme.of(context).colorScheme.primary,
@@ -77,7 +77,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    user['email'],
+                    user!['email'],
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.normal,
