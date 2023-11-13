@@ -76,6 +76,7 @@ class _LoginPageState extends State<LoginPage> {
                   ),
                 ),
                 SizedBox(height: 45.h),
+                
                 MyTextField(
                   hintText: 'Email',
                   obscureText: false,
@@ -127,7 +128,7 @@ class _LoginPageState extends State<LoginPage> {
                       ),
                     ),
                   ],
-                )
+                ),
               ],
             ),
           ),

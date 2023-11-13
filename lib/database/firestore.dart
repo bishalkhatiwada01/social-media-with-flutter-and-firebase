@@ -26,6 +26,7 @@ class FirestoreDatabase {
       'UserEmail': user!.email,
       'PostMessage': message,
       'dateString': '${DateTime.now()}',
+      
     });
   }
 

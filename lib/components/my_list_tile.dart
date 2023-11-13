@@ -36,7 +36,10 @@ class MyListTile extends StatelessWidget {
                 ),
                 timestamp == null
                     ? const Text('')
-                    : Text("${formatDistanceToNowStrict(timestamp!)} ago")
+                    : Text(
+                        "${formatDistanceToNowStrict(timestamp!)} ago",
+                        style: TextStyle(fontSize: 10.sp),
+                      )
               ],
             )),
       ),

@@ -34,7 +34,7 @@ class HomePage extends StatelessWidget {
         backgroundColor: Colors.transparent,
         foregroundColor: Theme.of(context).colorScheme.inversePrimary,
         elevation: 0,
-        title: const Text('W A L L'),
+        title: const Text('P O S T'),
       ),
       drawer: const MyDrawer(),
       body: Column(
@@ -86,7 +86,6 @@ class HomePage extends StatelessWidget {
               // return a list
               return Expanded(
                 child: ListView.builder(
-                  
                   itemCount: posts.length,
                   itemBuilder: (context, index) {
                     // get individual posts
@@ -107,7 +106,7 @@ class HomePage extends StatelessWidget {
                 ),
               );
             },
-          )
+          ),
         ],
       ),
     );
