@@ -1,9 +1,8 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:socialmediaapp/components/my_drawer.dart';
 import 'package:socialmediaapp/components/my_list_tile.dart';
-import 'package:socialmediaapp/components/my_post_button..dart';
+import 'package:socialmediaapp/components/my_postbutton.dart';
 import 'package:socialmediaapp/components/my_textfield.dart';
 import 'package:socialmediaapp/database/firestore.dart';
 
@@ -87,6 +86,7 @@ class HomePage extends StatelessWidget {
               // return a list
               return Expanded(
                 child: ListView.builder(
+                  
                   itemCount: posts.length,
                   itemBuilder: (context, index) {
                     // get individual posts

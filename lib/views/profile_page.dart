@@ -27,7 +27,7 @@ class ProfilePage extends StatelessWidget {
         builder: (context, snapshot) {
           // loading
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Center(
+            return const Center(
               child: CircularProgressIndicator(),
             );
           }
@@ -50,7 +50,7 @@ class ProfilePage extends StatelessWidget {
                       left: 15.w,
                       top: 40.h,
                     ),
-                    child: Row(
+                    child: const Row(
                       children: [
                         MyBackButton(),
                       ],
@@ -77,7 +77,7 @@ class ProfilePage extends StatelessWidget {
                     ),
                   ),
                   Text(
-                    user!['email'],
+                    user['email'],
                     style: TextStyle(
                       fontSize: 18.sp,
                       fontWeight: FontWeight.normal,
@@ -87,7 +87,7 @@ class ProfilePage extends StatelessWidget {
               ),
             );
           } else {
-            return Text('No data');
+            return const Text('No data');
           }
         },
       ),

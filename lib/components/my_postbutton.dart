@@ -15,6 +15,7 @@ class MyPostButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(12.sp),
         ),
         padding: EdgeInsets.all(14.sp),
+        // ignore: prefer_const_constructors
         margin: EdgeInsets.only(left: 10),
         child: Center(
           child: Icon(

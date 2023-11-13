@@ -40,7 +40,7 @@ class UserPage extends StatelessWidget {
                   left: 15.w,
                   top: 40.h,
                 ),
-                child: Row(
+                child: const Row(
                   children: [
                     MyBackButton(),
                   ],
