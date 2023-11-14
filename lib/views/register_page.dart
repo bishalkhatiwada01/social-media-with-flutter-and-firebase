@@ -53,6 +53,7 @@ class _RegisterPageState extends State<RegisterPage> {
             await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text,
           password: passwordController.text,
+          
         );
 
         // create the user document and add to firestore

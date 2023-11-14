@@ -92,14 +92,14 @@ class HomePage extends StatelessWidget {
                     final post = posts[index];
 
                     // get data from each post
-                    String message = post['PostMessage'];
                     String userEmail = post['UserEmail'];
+                    String message = post['PostMessage'];
                     String timestamp = post['dateString'];
 
                     // return as a listtile
                     return MyListTile(
-                      title: message,
                       subtitle: userEmail,
+                      title: message,
                       timestamp: timestamp,
                     );
                   },

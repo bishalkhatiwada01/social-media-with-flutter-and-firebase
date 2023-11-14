@@ -24,8 +24,10 @@ class FirestoreDatabase {
   Future<void> addPost(String message) {
     return posts.add({
       'UserEmail': user!.email,
+      'username': user!.displayName,
       'PostMessage': message,
       'dateString': '${DateTime.now()}',
+      
       
     });
   }
