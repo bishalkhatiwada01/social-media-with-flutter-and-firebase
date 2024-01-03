@@ -4,11 +4,11 @@ import 'package:socialmediaapp/common/widgets/my_drawer.dart';
 import 'package:socialmediaapp/common/widgets/my_list_tile.dart';
 import 'package:socialmediaapp/common/widgets/my_postbutton.dart';
 import 'package:socialmediaapp/common/widgets/my_textfield.dart';
-import 'package:socialmediaapp/shared/database/firestore.dart';
+import 'package:socialmediaapp/features/auth/utils/firestore.dart';
 
 
 class HomePage extends StatefulWidget {
-  HomePage({super.key});
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();

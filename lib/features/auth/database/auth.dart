@@ -3,9 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:socialmediaapp/helper/login_or_register.dart';
 import 'package:socialmediaapp/main.dart';
 
-
-class StatusPage extends StatelessWidget {
-  const StatusPage({super.key});
+class AuthPage extends StatelessWidget {
+  const AuthPage({super.key});
 
   @override
   Widget build(BuildContext context) {

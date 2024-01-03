@@ -1,12 +1,12 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:socialmediaapp/features/news/pages/news_page.dart';
 import 'common/export_common.dart';
 import 'package:socialmediaapp/shared/database/status_page.dart';
 import 'package:socialmediaapp/helper/login_or_register.dart';
 import 'package:socialmediaapp/features/profile/views/users_page.dart';
 import 'package:socialmediaapp/firebase/firebase_options.dart';
-import 'package:socialmediaapp/features/news/views/news_page.dart';
 import 'package:socialmediaapp/features/dashbord/views/home_page.dart';
 import 'package:socialmediaapp/features/notifications/views/notification_page.dart';
 import 'package:socialmediaapp/features/profile/views/profile_page.dart';
@@ -39,8 +39,8 @@ class MyApp extends StatelessWidget {
             darkTheme: darkMode,
             routes: {
               '/login_register_page': (context) => const LoginOrRegister(),
-              '/main_page': (context) => MainPage(),
-              '/home_page': (context) => HomePage(),
+              '/main_page': (context) => const MainPage(),
+              '/home_page': (context) => const HomePage(),
               '/profile_page': (context) => ProfilePage(),
               '/users_page': (context) => const UserPage(),
               '/notification_page': (context) => const NotificationPage(),
@@ -54,7 +54,7 @@ class MyApp extends StatelessWidget {
   }
 }
 
-// homepage
+// mainpage
 
 class MainPage extends StatefulWidget {
   const MainPage({super.key});
@@ -65,9 +65,10 @@ class MainPage extends StatefulWidget {
 
 class _MainPageState extends State<MainPage> {
   final _pages = [
-    HomePage(),
-    NewsPage(),
+    const HomePage(),
+    const NewsPage(),
     ProfilePage(),
+    const NotificationPage()
   ];
 
   int _selectedIndex = 0;
