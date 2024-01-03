@@ -3,8 +3,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:socialmediaapp/components/my_button.dart';
-import 'package:socialmediaapp/components/my_textfield.dart';
+import 'package:socialmediaapp/common/widgets/my_button.dart';
+import 'package:socialmediaapp/common/widgets/my_textfield.dart';
+import 'package:socialmediaapp/features/auth/data/auth_data.dart';
+
 import 'package:socialmediaapp/helper/helper_functions.dart';
 
 class LoginPage extends StatefulWidget {
@@ -34,23 +36,31 @@ class _LoginPageState extends State<LoginPage> {
       ),
     );
 
-    // try sign in
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-        email: emailController.text,
-        password: passwordController.text,
-      );
-
-      // pop loading circle
-      if (context.mounted) Navigator.pop(context);
-    }
-
-    // display any errors
-    on FirebaseAuthException catch (e) {
-      // pop loading circle
+    await AuthData.login(
+      email: emailController.text.trim(),
+      password: passwordController.text.trim()
+    ).then((value) {
       Navigator.pop(context);
-      displayMessageToUser(e.code, context);
-    }
+      displayMessageToUser(value, context);
+    });
+
+    // try sign in
+    // try {
+    //   await FirebaseAuth.instance.signInWithEmailAndPassword(
+    //     email: emailController.text,
+    //     password: passwordController.text,
+    //   );
+    //
+    //   // pop loading circle
+    //   if (context.mounted) Navigator.pop(context);
+    // }
+    //
+    // // display any errors
+    // on FirebaseAuthException catch (e) {
+    //   // pop loading circle
+    //   Navigator.pop(context);
+    //   displayMessageToUser(e.code, context);
+    // }
   }
 
   @override

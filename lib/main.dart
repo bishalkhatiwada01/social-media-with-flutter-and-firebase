@@ -1,17 +1,15 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:socialmediaapp/auth/auth.dart';
-import 'package:socialmediaapp/auth/login_or_register.dart';
-import 'package:socialmediaapp/auth/users_page.dart';
-import 'package:socialmediaapp/components/my_bottom_navbar.dart';
-import 'package:socialmediaapp/firebase_options.dart';
-import 'package:socialmediaapp/news_page.dart';
-import 'package:socialmediaapp/themes/dark_mode.dart';
-import 'package:socialmediaapp/themes/light_mode.dart';
-import 'package:socialmediaapp/views/home_page.dart';
-import 'package:socialmediaapp/views/notification_page.dart';
-import 'package:socialmediaapp/views/profile_page.dart';
+import 'common/export_common.dart';
+import 'package:socialmediaapp/shared/database/status_page.dart';
+import 'package:socialmediaapp/helper/login_or_register.dart';
+import 'package:socialmediaapp/features/profile/views/users_page.dart';
+import 'package:socialmediaapp/firebase/firebase_options.dart';
+import 'package:socialmediaapp/features/news/views/news_page.dart';
+import 'package:socialmediaapp/features/dashbord/views/home_page.dart';
+import 'package:socialmediaapp/features/notifications/views/notification_page.dart';
+import 'package:socialmediaapp/features/profile/views/profile_page.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -37,7 +35,7 @@ class MyApp extends StatelessWidget {
           return MaterialApp(
             debugShowCheckedModeBanner: false,
             theme: lightMode,
-            home: const AuthPage(),
+            home: const StatusPage(),
             darkTheme: darkMode,
             routes: {
               '/login_register_page': (context) => const LoginOrRegister(),

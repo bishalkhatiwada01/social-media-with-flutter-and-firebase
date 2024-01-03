@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:socialmediaapp/components/my_drawer.dart';
-import 'package:socialmediaapp/components/my_list_tile.dart';
-import 'package:socialmediaapp/components/my_postbutton.dart';
-import 'package:socialmediaapp/components/my_textfield.dart';
-import 'package:socialmediaapp/database/firestore.dart';
+import 'package:socialmediaapp/common/widgets/my_drawer.dart';
+import 'package:socialmediaapp/common/widgets/my_list_tile.dart';
+import 'package:socialmediaapp/common/widgets/my_postbutton.dart';
+import 'package:socialmediaapp/common/widgets/my_textfield.dart';
+import 'package:socialmediaapp/shared/database/firestore.dart';
+
 
 class HomePage extends StatefulWidget {
   HomePage({super.key});

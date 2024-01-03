@@ -4,8 +4,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:socialmediaapp/components/my_button.dart';
-import 'package:socialmediaapp/components/my_textfield.dart';
+import 'package:socialmediaapp/common/widgets/my_button.dart';
+import 'package:socialmediaapp/common/widgets/my_textfield.dart';
 import 'package:socialmediaapp/helper/helper_functions.dart';
 
 class RegisterPage extends StatefulWidget {

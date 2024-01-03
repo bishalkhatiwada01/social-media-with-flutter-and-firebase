@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:socialmediaapp/components/my_back_buttom.dart';
+import 'package:socialmediaapp/common/widgets/my_back_buttom.dart';
 
 class ProfilePage extends StatelessWidget {
   ProfilePage({super.key});
@@ -50,7 +50,7 @@ class ProfilePage extends StatelessWidget {
                       left: 15.w,
                       top: 40.h,
                     ),
-                    child: const Row(
+                    child:  const Row(
                       children: [
                         MyBackButton(),
                       ],

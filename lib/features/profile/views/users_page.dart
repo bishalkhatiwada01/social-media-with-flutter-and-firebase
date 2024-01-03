@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:socialmediaapp/components/my_back_buttom.dart';
-import 'package:socialmediaapp/components/my_list_tile.dart';
+import 'package:socialmediaapp/common/widgets/my_back_buttom.dart';
+import 'package:socialmediaapp/common/widgets/my_list_tile.dart';
 import 'package:socialmediaapp/helper/helper_functions.dart';
 
 class UserPage extends StatelessWidget {
