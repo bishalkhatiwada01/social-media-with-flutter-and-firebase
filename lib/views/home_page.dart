@@ -6,8 +6,14 @@ import 'package:socialmediaapp/components/my_postbutton.dart';
 import 'package:socialmediaapp/components/my_textfield.dart';
 import 'package:socialmediaapp/database/firestore.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
   // firestore access
   final FirestoreDatabase database = FirestoreDatabase();
 
@@ -16,7 +22,7 @@ class HomePage extends StatelessWidget {
 
   // post message
   void postMessage() {
-    // only piost if there something in textfield
+    // only post if there something in textfield
     if (newPostController.text.isNotEmpty) {
       String message = newPostController.text;
       database.addPost(message);
@@ -59,7 +65,6 @@ class HomePage extends StatelessWidget {
           ),
 
           // posts
-
           StreamBuilder(
             stream: database.getPostsStream(),
             builder: (context, snapshot) {
