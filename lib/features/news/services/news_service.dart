@@ -7,9 +7,12 @@ import 'package:socialmediaapp/features/news/models/news_model.dart';
 class NewsService {
   Future<List<NewsModel>> getNews() async {
     try {
+      print('Converting');
       // Load data from the JSON file
-      String jsonData = await rootBundle.loadString('lib/news/news_data.json');
-      List<dynamic> data = json.decode(jsonData);
+      String jsonData = await rootBundle.loadString('assets/news_data.json');
+
+      Map<String, dynamic> jsonMap = json.decode(jsonData);
+      List<dynamic> data = jsonMap["news"];
 
       // Convert data to a list of NewsModel
       List<NewsModel> newsList =

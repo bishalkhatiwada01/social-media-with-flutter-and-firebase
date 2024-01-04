@@ -1,6 +1,6 @@
 
-
-[
+{
+  "news": [
   {
     "source": {"id": null, "name": "The Annapurna Express"},
     "author": "Amit S.",
@@ -30,5 +30,36 @@
     "urlToImage": "https://images.pexels.com/photos/2832140/pexels-photo-2832140.jpeg",
     "publishedAt": "2023-07-15T13:45:30Z",
     "content": "The Nepali Army conducted emergency evacuation flights to bring supplies and rescue hundreds stranded in remote villages cutoff by devastating floods last week."
-  }
+  },
+      {
+      "source": {"id": null, "name": "The Himalayan Times"},
+      "author": "Alisha M.",
+      "title": "Record-Breaking Everest Expedition Concludes Successfully",
+      "description": "A team of climbers successfully reached the summit, setting a new record for the fastest ascent.",
+      "url": "https://himalayantimes.com/news/5678",
+      "urlToImage": "https://images.pexels.com/photos/3615887/pexels-photo-3615887.jpeg",
+      "publishedAt": "2023-05-20T08:30:45Z",
+      "content": "In a historic feat, climbers reached the summit of Mount Everest in record time, showcasing extraordinary mountaineering skills."
+    },
+    {
+      "source": {"id": null, "name": "Kathmandu Post"},
+      "author": "Raj B.",
+      "title": "New Conservation Efforts for Rare Red Panda Species",
+      "description": "Conservationists launch a new initiative to protect and preserve the endangered red panda population.",
+      "url": "https://kathmandupost.com/news/9876",
+      "urlToImage": "https://images.pexels.com/photos/3506805/pexels-photo-3506805.jpeg",
+      "publishedAt": "2023-04-05T11:20:15Z",
+      "content": "Environmentalists and wildlife experts collaborate on a project aimed at safeguarding the habitat and population of red pandas, an endangered species in Nepal."
+    },
+    {
+      "source": {"id": null, "name": "The Annapurna Express"},
+      "author": "Amit S.",
+      "title": "Cultural Festival Draws Thousands to Pokhara",
+      "description": "Pokhara hosts a vibrant cultural festival celebrating the diversity of Nepali traditions.",
+      "url": "https://annapurnaexpress.com/5678",
+      "urlToImage": "https://images.pexels.com/photos/2765006/pexels-photo-2765006.jpeg",
+      "publishedAt": "2023-02-12T14:10:30Z",
+      "content": "The annual cultural festival in Pokhara attracted thousands of attendees, featuring traditional music, dance, and art, showcasing the rich cultural heritage of Nepal."
+    }
 ]
+}

@@ -4,6 +4,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:socialmediaapp/features/news/models/news_model.dart';
+import 'package:socialmediaapp/features/news/pages/news_detail_page.dart';
 import 'package:socialmediaapp/features/news/services/news_service.dart';
 
 class NewsPage extends StatefulWidget {
@@ -64,7 +65,10 @@ class _NewsPageState extends State<NewsPage> {
                         Text("Published at: ${news.publishedAt}"),
                       ],
                     ),
-                    onTap: () {},
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => NewsDetailsPage(news)));
+                    },
                   ),
                 );
               },
