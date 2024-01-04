@@ -12,7 +12,7 @@ class BottomNavBar extends StatelessWidget {
     return BottomNavigationBar(
       type: BottomNavigationBarType.fixed,
       selectedItemColor: Colors.blue,
-      unselectedItemColor: Colors.white,
+      unselectedItemColor: Theme.of(context).colorScheme.inversePrimary,
       currentIndex: selectedIndex,
       onTap: onTap,
       items: const [
@@ -23,9 +23,9 @@ class BottomNavBar extends StatelessWidget {
             label: 'Home'),
         BottomNavigationBarItem(
           icon: Icon(
-            Icons.newspaper,
+            Icons.post_add_outlined,
           ),
-          label: 'News',
+          label: 'Post',
         ),
         BottomNavigationBarItem(
           icon: Icon(

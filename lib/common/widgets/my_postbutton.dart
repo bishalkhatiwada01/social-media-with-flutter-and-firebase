@@ -9,18 +9,21 @@ class MyPostButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: onTap,
-      child: Container(
-        decoration: BoxDecoration(
-          color: Theme.of(context).colorScheme.secondary,
-          borderRadius: BorderRadius.circular(12.sp),
+      child: ElevatedButton(
+        onPressed: () {},
+        style: ElevatedButton.styleFrom(
+          foregroundColor: Colors.white,
+          backgroundColor: Theme.of(context).colorScheme.secondary,
+          minimumSize: Size(100.w, 30.h),
+          padding: const EdgeInsets.symmetric(horizontal: 16),
+          shape: const RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(10)),
+          ),
         ),
-        padding: EdgeInsets.all(14.sp),
-        // ignore: prefer_const_constructors
-        margin: EdgeInsets.only(left: 10),
-        child: Center(
-          child: Icon(
-            Icons.done,
-            color: Theme.of(context).colorScheme.primary,
+        child: Text(
+          'Post',
+          style: TextStyle(
+            color: Theme.of(context).colorScheme.inversePrimary,
           ),
         ),
       ),

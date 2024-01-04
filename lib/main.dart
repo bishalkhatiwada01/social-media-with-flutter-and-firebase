@@ -1,7 +1,8 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-import 'package:socialmediaapp/features/news/pages/news_page.dart';
+import 'package:socialmediaapp/features/posts/my_posts.dart';
+
 import 'common/export_common.dart';
 import 'package:socialmediaapp/shared/database/status_page.dart';
 import 'package:socialmediaapp/helper/login_or_register.dart';
@@ -44,6 +45,7 @@ class MyApp extends StatelessWidget {
               '/profile_page': (context) => ProfilePage(),
               '/users_page': (context) => const UserPage(),
               '/notification_page': (context) => const NotificationPage(),
+              'my_posts': (context) => const PostPage(),
 
 
             },
@@ -66,7 +68,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   final _pages = [
     const HomePage(),
-    const NewsPage(),
+    const PostPage(),
     ProfilePage(),
     const NotificationPage()
   ];
